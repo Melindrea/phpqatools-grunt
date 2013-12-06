@@ -24,6 +24,7 @@
     "grunt-contrib-jshint": "~0.7.2",
     "grunt-jsonlint": "~1.0.4",
     "grunt-phplint": "0.0.5",
-    "grunt-phpcs": "~0.2.1"
+    "grunt-phpcs": "~0.2.1",
+    "grunt-phpunit": "~0.3.1"
   }
 }
