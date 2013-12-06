@@ -52,6 +52,17 @@ module.exports = function (grunt) {
             all: [
                 '<%= directories.php %>/**/*.php'
             ]
+        },
+        phpcs: {
+            application: {
+                dir: '<%= directories.php %>'
+            },
+            options: {
+                bin: '<%= directories.composerBin %>/phpcs',
+                standard: 'PSR2',
+                ignore: 'database',
+                extensions: 'php'
+            }
         }
     });
 

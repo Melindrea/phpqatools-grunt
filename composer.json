@@ -31,5 +31,8 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+	"require-dev": {
+		"squizlabs/php_codesniffer": "1.*"
+	}
 }
