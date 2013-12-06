@@ -22,6 +22,8 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         directories: directoriesConfig,
+
+        // JS tasks
         jshint: {
             options: {
                 jshintrc: '.jshintrc',
@@ -40,8 +42,17 @@ module.exports = function (grunt) {
             files: [
                 '*.json'
             ]
-        }
+        },
 
+        // PHP tasks
+        phplint: {
+            options: {
+                swapPath: '/tmp'
+            },
+            all: [
+                '<%= directories.php %>/**/*.php'
+            ]
+        }
     });
 
     grunt.registerTask('default', [
