@@ -1,0 +1,27 @@
+{
+  "name": "phpqatools-grunt",
+  "version": "0.0.0",
+  "description": "Showing off using Grunt and the PHP Quality Assurance Toolchain to limit code smell in PHP",
+  "private": true,
+  "scripts": {
+    "test": "grunt test --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Melindrea/phpqatools-grunt.git"
+  },
+  "author": "Marie Hogebrandt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Melindrea/phpqatools-grunt/issues"
+  },
+  "devDependencies": {
+    "time-grunt": "~0.2.3",
+    "load-grunt-tasks": "~0.2.0",
+    "grunt": "~0.4.2",
+    "grunt-jsvalidate": "~0.2.2",
+    "jshint-stylish": "~0.1.4",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-jsonlint": "~1.0.4"
+  }
+}
