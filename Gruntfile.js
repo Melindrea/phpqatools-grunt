@@ -85,6 +85,9 @@ module.exports = function (grunt) {
     grunt.registerTask('test', [
         'jsvalidate',
         'jshint',
-        'jsonlint'
+        'jsonlint',
+        'phplint',
+        'phpcs',
+        'phpunit'
     ]);
 };
