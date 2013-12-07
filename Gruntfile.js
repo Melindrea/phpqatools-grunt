@@ -23,6 +23,11 @@ module.exports = function (grunt) {
     grunt.initConfig({
         directories: directoriesConfig,
 
+        // General tasks
+        clean: {
+            phpdocumentor: '<%= phpdocumentor.dist.target %>'
+        },
+
         // JS tasks
         jshint: {
             options: {
@@ -75,6 +80,16 @@ module.exports = function (grunt) {
                 colors: true,
                 noGlobalsBackup: false
             }
+        },
+        phpdocumentor: {
+            dist: {
+                bin: '<%= directories.composerBin %>/phpdoc.php',
+                directory: '<%= directories.php %>',
+                target: '<%= directories.reports %>/phpdocs',
+                ignore: [
+                    '<%= directories.php %>/database/*'
+                ]
+            }
         }
     });
 
@@ -89,5 +104,10 @@ module.exports = function (grunt) {
         'phplint',
         'phpcs',
         'phpunit'
+    ]);
+
+    grunt.registerTask('phpdocs', [
+        'clean:phpdocumentor',
+        'phpdocumentor'
     ]);
 };

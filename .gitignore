@@ -15,3 +15,4 @@ Thumbs.db
 !.gitattributes
 !.htaccess
 *~
+logs/phpdocs/phpdoc-*
