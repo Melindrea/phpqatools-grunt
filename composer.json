@@ -36,6 +36,7 @@
 		"squizlabs/php_codesniffer": "1.*",
 		"phpunit/phpunit": "3.7.*",
 		"phpdocumentor/phpdocumentor": "2.*",
-		"phploc/phploc": "*"
+		"phploc/phploc": "*",
+		"sensiolabs/security-checker": "1.3.*@dev"
 	}
 }

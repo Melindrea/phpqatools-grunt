@@ -33,6 +33,12 @@ module.exports = function (grunt) {
                     'mkdir -p <%= directories.reports %>/phploc',
                     'php <%= directories.composerBin %>/phploc --log-xml <%= directories.reports %>/phploc/<%= grunt.template.today("isoDateTime") %>.xml <%= directories.php %>'
                 ].join('&&')
+            },
+            securityChecker: {
+                command: 'php <%= directories.composerBin %>/security-checker security:check composer.lock',
+                options: {
+                    stdout: true
+                }
             }
         },
 
@@ -121,5 +127,9 @@ module.exports = function (grunt) {
 
     grunt.registerTask('phploc', [
         'shell:phploc'
+    ]);
+
+    grunt.registerTask('vulnerability', [
+        'shell:securityChecker'
     ]);
 };
