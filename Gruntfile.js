@@ -41,6 +41,13 @@ module.exports = function (grunt) {
                 }
             }
         },
+        mkdir: {
+            phpmd: {
+                options: {
+                    create: ['<%= directories.reports %>/phpmd']
+                },
+            },
+        },
 
         // JS tasks
         jshint: {
@@ -104,6 +111,16 @@ module.exports = function (grunt) {
                     '<%= directories.php %>/database/*'
                 ]
             }
+        },
+        phpmd: {
+            application: {
+                dir: '<%= directories.php %>'
+            },
+            options: {
+                rulesets: 'codesize,unusedcode,naming',
+                bin: '<%= directories.composerBin %>/phpmd',
+                reportFile: '<%= directories.reports %>/phpmd/<%= grunt.template.today("isoDateTime") %>.xml'
+            }
         }
     });
 
@@ -131,5 +148,10 @@ module.exports = function (grunt) {
 
     grunt.registerTask('vulnerability', [
         'shell:securityChecker'
+    ]);
+
+    grunt.registerTask('phpmdMk', [
+        'mkdir:phpmd',
+        'phpmd'
     ]);
 };

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pmd version="@package_version@" timestamp="2013-12-08T12:48:32+01:00">
+  <file name="/home/marie/projects/test/phpqatools-grunt/app/tests/ExampleTest.php">
+    <violation beginline="13" endline="13" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$crawler'.
+    </violation>
+  </file>
+  <file name="/home/marie/projects/test/phpqatools-grunt/app/tests/TestCase.php">
+    <violation beginline="13" endline="13" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$unitTesting'.
+    </violation>
+    <violation beginline="15" endline="15" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$testEnvironment'.
+    </violation>
+  </file>
+</pmd>
