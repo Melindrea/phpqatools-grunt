@@ -23,7 +23,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         directories: directoriesConfig,
 
-        // General tasks
+        // Utility tasks
         clean: {
             phpdocumentor: '<%= phpdocumentor.dist.target %>'
         },
@@ -38,6 +38,25 @@ module.exports = function (grunt) {
                 command: 'php <%= directories.composerBin %>/security-checker security:check composer.lock',
                 options: {
                     stdout: true
+                }
+            },
+            pdepend: {
+                command: function () {
+                    var now = grunt.template.today("isoDateTime"),
+                    directory = '<%= directories.reports %>/pdepend/' + now,
+                    mkdir = 'mkdir -p ' + directory,
+                    summary = directory + '/summary.xml',
+                    chart = directory + '/chart.svg',
+                    pyramid = directory + '/pyramid.svg',
+                    pdepend;
+
+                    pdepend = 'php <%= directories.composerBin %>/pdepend '
+                    pdepend += '--summary-xml=' + summary + ' ';
+                    pdepend += '--jdepend-chart=' + chart + ' ';
+                    pdepend += '--overview-pyramid=' + pyramid + ' ';
+                    pdepend += '<%= directories.php %>';
+
+                    return mkdir + ' && ' + pdepend;
                 }
             }
         },
@@ -153,5 +172,9 @@ module.exports = function (grunt) {
     grunt.registerTask('phpmdMk', [
         'mkdir:phpmd',
         'phpmd'
+    ]);
+
+    grunt.registerTask('pdepend', [
+        'shell:pdepend'
     ]);
 };

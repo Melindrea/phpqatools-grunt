@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metrics generated="2013-12-08T13:34:26" pdepend="@package_version@" ahh="2.5" andc="0.2" calls="9" ccn="9" ccn2="9" cloc="58" clsa="0" clsc="6" eloc="70" fanout="4" leafs="0" lloc="29" loc="151" maxDIT="3" ncloc="93" noc="6" nof="0" noi="0" nom="8" nop="2" roots="4">
+  <files>
+    <file name="/home/marie/projects/test/phpqatools-grunt/app/database/seeds/DatabaseSeeder.php" cloc="6" eloc="8" lloc="2" loc="18" ncloc="12"/>
+    <file name="/home/marie/projects/test/phpqatools-grunt/app/controllers/BaseController.php" cloc="5" eloc="11" lloc="4" loc="18" ncloc="13"/>
+    <file name="/home/marie/projects/test/phpqatools-grunt/app/controllers/HomeController.php" cloc="12" eloc="9" lloc="3" loc="24" ncloc="12"/>
+    <file name="/home/marie/projects/test/phpqatools-grunt/app/models/User.php" cloc="25" eloc="21" lloc="11" loc="53" ncloc="28"/>
+    <file name="/home/marie/projects/test/phpqatools-grunt/app/tests/ExampleTest.php" cloc="5" eloc="10" lloc="4" loc="18" ncloc="13"/>
+    <file name="/home/marie/projects/test/phpqatools-grunt/app/tests/TestCase.php" cloc="5" eloc="11" lloc="5" loc="20" ncloc="15"/>
+  </files>
+  <package name="+global" cr="0.15" noc="1" nof="0" noi="0" nom="1" rcr="0.15">
+    <class name="DatabaseSeeder" ca="0" cbo="1" ce="1" cis="1" cloc="6" cr="0.15" csz="1" dit="2" eloc="3" impl="0" lloc="1" loc="15" ncloc="9" noam="1" nocc="0" nom="1" noom="0" npm="1" rcr="0.2775" vars="0" varsi="0" varsnp="0" wmc="1" wmci="1" wmcnp="1">
+      <file name="/home/marie/projects/test/phpqatools-grunt/app/database/seeds/DatabaseSeeder.php"/>
+      <method name="run" ccn="1" ccn2="1" cloc="1" eloc="3" lloc="1" loc="6" ncloc="5" npath="1"/>
+    </class>
+  </package>
+  <package name="Example" cr="0.15" noc="5" nof="0" noi="0" nom="7" rcr="0.66">
+    <class name="BaseController" ca="0" cbo="1" ce="1" cis="0" cloc="5" cr="0.2775" csz="1" dit="2" eloc="5" impl="0" lloc="2" loc="14" ncloc="9" noam="1" nocc="1" nom="1" noom="0" npm="0" rcr="0.2775" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="0">
+      <file name="/home/marie/projects/test/phpqatools-grunt/app/controllers/BaseController.php"/>
+      <method name="setupLayout" ccn="2" ccn2="2" cloc="0" eloc="5" lloc="2" loc="6" ncloc="6" npath="2"/>
+    </class>
+    <class name="HomeController" ca="0" cbo="1" ce="1" cis="1" cloc="12" cr="0.15" csz="1" dit="3" eloc="3" impl="0" lloc="1" loc="20" ncloc="8" noam="1" nocc="0" nom="1" noom="0" npm="1" rcr="0.385875" vars="0" varsi="0" varsnp="0" wmc="1" wmci="3" wmcnp="1">
+      <file name="/home/marie/projects/test/phpqatools-grunt/app/controllers/HomeController.php"/>
+      <method name="showWelcome" ccn="1" ccn2="1" cloc="0" eloc="3" lloc="1" loc="4" ncloc="4" npath="1"/>
+    </class>
+    <class name="User" ca="0" cbo="0" ce="0" cis="3" cloc="25" cr="0.15" csz="5" dit="2" eloc="9" impl="2" lloc="3" loc="46" ncloc="21" noam="3" nocc="0" nom="3" noom="0" npm="3" rcr="0.5325" vars="2" varsi="2" varsnp="0" wmc="3" wmci="3" wmcnp="3">
+      <file name="/home/marie/projects/test/phpqatools-grunt/app/models/User.php"/>
+      <method name="getAuthIdentifier" ccn="1" ccn2="1" cloc="0" eloc="3" lloc="1" loc="4" ncloc="4" npath="1"/>
+      <method name="getAuthPassword" ccn="1" ccn2="1" cloc="0" eloc="3" lloc="1" loc="4" ncloc="4" npath="1"/>
+      <method name="getReminderEmail" ccn="1" ccn2="1" cloc="0" eloc="3" lloc="1" loc="4" ncloc="4" npath="1"/>
+    </class>
+    <class name="ExampleTest" ca="0" cbo="0" ce="0" cis="1" cloc="5" cr="0.15" csz="1" dit="3" eloc="4" impl="0" lloc="2" loc="14" ncloc="9" noam="1" nocc="0" nom="1" noom="0" npm="1" rcr="0.385875" vars="0" varsi="0" varsnp="0" wmc="1" wmci="2" wmcnp="1">
+      <file name="/home/marie/projects/test/phpqatools-grunt/app/tests/ExampleTest.php"/>
+      <method name="testBasicExample" ccn="1" ccn2="1" cloc="0" eloc="4" lloc="2" loc="6" ncloc="6" npath="1"/>
+    </class>
+    <class name="TestCase" ca="0" cbo="1" ce="1" cis="1" cloc="5" cr="0.2775" csz="1" dit="2" eloc="5" impl="0" lloc="3" loc="16" ncloc="11" noam="1" nocc="1" nom="1" noom="0" npm="1" rcr="0.2775" vars="0" varsi="0" varsnp="0" wmc="1" wmci="1" wmcnp="1">
+      <file name="/home/marie/projects/test/phpqatools-grunt/app/tests/TestCase.php"/>
+      <method name="createApplication" ccn="1" ccn2="1" cloc="0" eloc="5" lloc="3" loc="8" ncloc="8" npath="1"/>
+    </class>
+  </package>
+</metrics>
