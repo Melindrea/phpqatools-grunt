@@ -27,6 +27,14 @@ module.exports = function (grunt) {
         clean: {
             phpdocumentor: '<%= phpdocumentor.dist.target %>'
         },
+        shell: {
+            phploc: {
+                command: [
+                    'mkdir -p <%= directories.reports %>/phploc',
+                    'php <%= directories.composerBin %>/phploc --log-xml <%= directories.reports %>/phploc/<%= grunt.template.today("isoDateTime") %>.xml <%= directories.php %>'
+                ].join('&&')
+            }
+        },
 
         // JS tasks
         jshint: {
@@ -109,5 +117,9 @@ module.exports = function (grunt) {
     grunt.registerTask('phpdocs', [
         'clean:phpdocumentor',
         'phpdocumentor'
+    ]);
+
+    grunt.registerTask('phploc', [
+        'shell:phploc'
     ]);
 };
