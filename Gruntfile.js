@@ -65,7 +65,7 @@ module.exports = function (grunt) {
                 options: {
                     create: ['<%= directories.reports %>/phpmd']
                 },
-            },
+            }
         },
 
         // JS tasks
