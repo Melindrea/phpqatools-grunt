@@ -30,7 +30,6 @@
     "grunt-shell": "~0.6.1",
     "lodash": "~2.4.1",
     "grunt-phpmd": "~0.1.0",
-    "grunt-mkdir": "~0.1.1",
-    "glob": "~3.2.7"
+    "grunt-mkdir": "~0.1.1"
   }
 }
