@@ -13,9 +13,11 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
     grunt.loadTasks('tasks');
 
+    var pkg = require('./package'),
+    composer = require('./composer');
     var directoriesConfig = {
-        composer: 'vendor',
-        composerBin: 'vendor/bin',
+        composer: composer.config['vendor-dir'] ||'vendor',
+        composerBin: composer.config['bin-dir'] || 'vendor/bin',
         reports: 'logs',
         php: 'app'
     };
@@ -32,11 +34,10 @@ module.exports = function (grunt) {
 
         return object;
     }
-
     var config = {
+        pkg: pkg,
+        composer: composer,
         directories: directoriesConfig,
-        pkg: grunt.file.readJSON('package.json'),
-        composer: grunt.file.readJSON('composer.json'),
         shell: {
             phploc: {
                 command: [
