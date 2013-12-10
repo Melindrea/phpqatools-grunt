@@ -155,26 +155,4 @@ module.exports = function (grunt) {
         'phpcs',
         'phpunit'
     ]);
-
-    grunt.registerTask('phpdocs', [
-        'clean:phpdocumentor',
-        'phpdocumentor'
-    ]);
-
-    grunt.registerTask('phploc', [
-        'shell:phploc'
-    ]);
-
-    grunt.registerTask('vulnerability', [
-        'shell:securityChecker'
-    ]);
-
-    grunt.registerTask('phpmdMk', [
-        'mkdir:phpmd',
-        'phpmd'
-    ]);
-
-    grunt.registerTask('pdepend', [
-        'shell:pdepend'
-    ]);
 };
