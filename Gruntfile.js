@@ -20,15 +20,23 @@ module.exports = function (grunt) {
         php: 'app'
     };
 
-    grunt.initConfig({
+    function loadConfig(path) {
+        var glob = require('glob');
+        var object = {};
+        var key;
+
+        glob.sync('*', {cwd: path}).forEach(function(option) {
+            key = option.replace(/\.js$/,'');
+            object[key] = require(path + option);
+        });
+
+        return object;
+    }
+
+    var config = {
         directories: directoriesConfig,
         pkg: grunt.file.readJSON('package.json'),
         composer: grunt.file.readJSON('composer.json'),
-
-        // Utility tasks
-        clean: {
-            phpdocumentor: '<%= phpdocumentor.dist.target %>'
-        },
         shell: {
             phploc: {
                 command: [
@@ -44,15 +52,13 @@ module.exports = function (grunt) {
             },
             pdepend: {
                 command: function () {
-                    var now = grunt.template.today("isoDateTime"),
+                    var now = grunt.template.today('isoDateTime'),
                     directory = '<%= directories.reports %>/pdepend/' + now,
                     mkdir = 'mkdir -p ' + directory,
                     summary = directory + '/summary.xml',
                     chart = directory + '/chart.svg',
                     pyramid = directory + '/pyramid.svg',
-                    pdepend;
-
-                    pdepend = 'php <%= directories.composerBin %>/pdepend '
+                    pdepend = 'php <%= directories.composerBin %>/pdepend ';
                     pdepend += '--summary-xml=' + summary + ' ';
                     pdepend += '--jdepend-chart=' + chart + ' ';
                     pdepend += '--overview-pyramid=' + pyramid + ' ';
@@ -61,89 +67,10 @@ module.exports = function (grunt) {
                     return mkdir + ' && ' + pdepend;
                 }
             }
-        },
-        mkdir: {
-            phpmd: {
-                options: {
-                    create: ['<%= directories.reports %>/phpmd']
-                },
-            }
-        },
-
-        // JS tasks
-        jshint: {
-            options: {
-                jshintrc: '.jshintrc',
-                reporter: require('jshint-stylish')
-            },
-            all: [
-                'Gruntfile.js'
-            ]
-        },
-        jsvalidate: {
-            files: [
-                'Gruntfile.js'
-            ]
-        },
-        jsonlint: {
-            files: [
-                '*.json'
-            ]
-        },
-
-        // PHP tasks
-        phplint: {
-            options: {
-                swapPath: '/tmp'
-            },
-            all: [
-                '<%= directories.php %>/**/*.php'
-            ]
-        },
-        phpcs: {
-            application: {
-                dir: '<%= directories.php %>'
-            },
-            options: {
-                bin: '<%= directories.composerBin %>/phpcs',
-                standard: 'PSR2',
-                ignore: 'database',
-                extensions: 'php'
-            }
-        },
-        phpunit: {
-            classes: {
-                dir: '<%= directories.php %>/tests'
-            },
-            options: {
-                bin: '<%= directories.composerBin %>/phpunit',
-                bootstrap: 'bootstrap/autoload.php',
-                staticBackup: false,
-                colors: true,
-                noGlobalsBackup: false
-            }
-        },
-        phpdocumentor: {
-            dist: {
-                bin: '<%= directories.composerBin %>/phpdoc.php',
-                directory: '<%= directories.php %>',
-                target: '<%= directories.reports %>/phpdocs',
-                ignore: [
-                    '<%= directories.php %>/database/*'
-                ]
-            }
-        },
-        phpmd: {
-            application: {
-                dir: '<%= directories.php %>'
-            },
-            options: {
-                rulesets: 'codesize,unusedcode,naming',
-                bin: '<%= directories.composerBin %>/phpmd',
-                reportFile: '<%= directories.reports %>/phpmd/<%= grunt.template.today("isoDateTime") %>.xml'
-            }
         }
-    });
+    };
+    grunt.util._.extend(config, loadConfig('./tasks/options/'));
+    grunt.initConfig(config);
 
     grunt.registerTask('default', [
         'test'
