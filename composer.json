@@ -29,7 +29,9 @@
 		]
 	},
 	"config": {
-		"preferred-install": "dist"
+		"preferred-install": "dist",
+		"vendor-dir": "vendor",
+		"bin-dir": "vendor/bin"
 	},
 	"minimum-stability": "dev",
 	"require-dev": {

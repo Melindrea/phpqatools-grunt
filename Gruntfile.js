@@ -22,6 +22,8 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         directories: directoriesConfig,
+        pkg: grunt.file.readJSON('package.json'),
+        composer: grunt.file.readJSON('composer.json'),
 
         // Utility tasks
         clean: {
